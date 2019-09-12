@@ -1,5 +1,5 @@
 <template>
-  <div class="server-list-container">
+  <div class="server-list-container" style="border: 10px solid #eee">
     <el-form :inline="true" :model="formInline" class="server-form-inline">
       <el-form-item>
         <div style="margin: 20px;"></div>
@@ -94,15 +94,17 @@
       </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      background
-      layout= "total, sizes, prev, pager, next, jumper"
-      :page-sizes="[10, 20, 30, 50]"
-      :page-size="page_size"
-      @current-change="handleCurrentChange"
-      @size-change="handlesizechange"
-      :total= "totalNum">
-    </el-pagination>
+    <center>
+      <el-pagination
+        background
+        layout= "total, sizes, prev, pager, next, jumper"
+        :page-sizes="[10, 20, 30, 50]"
+        :page-size="page_size"
+        @current-change="handleCurrentChange"
+        @size-change="handlesizechange"
+        :total= "totalNum">
+      </el-pagination>
+    </center>
   </div>
 </template>
 
