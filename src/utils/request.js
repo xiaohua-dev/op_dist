@@ -2,6 +2,7 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
+import router from '@/router'
 
 // create an axios instance
 const service = axios.create({
@@ -33,18 +34,21 @@ service.interceptors.request.use(
 // response interceptor
 service.interceptors.response.use(
   response => {
-    // const res = response.data
     console.log(response)
     return response.data
   },
   error => {
+    if (error.response.status === 401) {
+      Message({
+        message: '登陆超时，请重新登陆！',
+        type: 'error',
+        duration: 5 * 1000
+      }) 
+      store.dispatch('user/resetToken') 
+      router.push({ path: '/login' })
     console.log('err' + error) // for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 5 * 1000
-    })
     return Promise.reject(error)
+    }
   }
 )
 

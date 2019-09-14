@@ -58,15 +58,15 @@ export const constantRoutes = [
   {
     path: '/user',
     component: Layout,
-    redirect: '/user/user',
+    redirect: '/user/users',
     name: 'User',
     meta: { title: '权限管理', icon: 'user' },
     children: [
       {
-        path: 'user',
-        name: 'User',
+        path: 'users',
+        name: 'Users',
         component: () => import('@/views/user/index'),
-        meta: { title: '用户管理', icon: 'user' }
+        meta: { title: '用户管理', icon: 'users' }
       },
       {
         path: 'role',
@@ -88,7 +88,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/assets/server',
     name: 'Assets',
-    meta: { title: '资产管理', icon: 'assets' },
+    meta: { title: '资产管理', icon: 'eye' },
     children: [
       {
         path: 'server',

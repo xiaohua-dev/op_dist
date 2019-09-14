@@ -1,5 +1,5 @@
 <template>
-  <div class="user-list-container">
+  <div class="user-list-container" style="border: 5px solid #eee">
     <el-form :inline="true" :model="formInline" class="user-form-inline">
       <el-form-item>
         <div style="margin: 20px;"></div>
@@ -27,7 +27,9 @@
       </el-form-item>
       <el-form-item>
         <div style="margin: 20px;"></div>
-        <el-input v-model="formInline.user" placeholder="搜索: 服务、名称、IP等"></el-input>
+        <el-input v-model="params.username" placeholder="搜索: 用户名等">
+          <el-button slot="append" icon="el-icon-search" @click="searchClick"></el-button>
+        </el-input>
       </el-form-item>
     </el-form>
     <el-table
@@ -140,6 +142,10 @@ export default {
     handlesizechange() {
         this.page_size = page-size
         this.fetchData()
+    },
+    searchClick() {
+      this.params.page = 1
+      this.fetchData()
     }
   }
 }

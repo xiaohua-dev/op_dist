@@ -1,5 +1,5 @@
 <template>
-  <div class="sysuser-list-container">
+  <div class="sysuser-list-container" style="border: 5px solid #eee">
     <el-form :inline="true" :model="formInline" class="sysuser-form-inline">
       <el-form-item>
         <div style="margin: 20px;"></div>
