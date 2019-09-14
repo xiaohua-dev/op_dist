@@ -14,3 +14,11 @@
 861:M 14 Sep 2019 21:03:05.610 * Saving the final RDB snapshot before exiting.
 861:M 14 Sep 2019 21:03:05.613 * DB saved on disk
 861:M 14 Sep 2019 21:03:05.613 # Redis is now ready to exit, bye bye...
+928:C 14 Sep 2019 21:48:07.222 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+928:C 14 Sep 2019 21:48:07.224 # Redis version=5.0.5, bits=64, commit=00000000, modified=0, pid=928, just started
+928:C 14 Sep 2019 21:48:07.224 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+928:M 14 Sep 2019 21:48:07.227 * Increased maximum number of open files to 10032 (it was originally set to 256).
+928:M 14 Sep 2019 21:48:07.238 * Running mode=standalone, port=6379.
+928:M 14 Sep 2019 21:48:07.238 # Server initialized
+928:M 14 Sep 2019 21:48:07.238 * DB loaded from disk: 0.000 seconds
+928:M 14 Sep 2019 21:48:07.238 * Ready to accept connections
