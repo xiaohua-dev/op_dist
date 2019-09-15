@@ -27,7 +27,9 @@
       </el-form-item>
       <el-form-item>
         <div style="margin: 20px;"></div>
-        <el-input v-model="formInline.user" placeholder="搜索: 服务、名称、IP等"></el-input>
+        <el-input v-model="params.role_name" placeholder="搜索: 用户名等">
+          <el-button slot="append" icon="el-icon-search" @click="searchClick"></el-button>
+        </el-input>
       </el-form-item>
     </el-form>
     <el-table
@@ -130,12 +132,16 @@ export default {
       })
     },
     handleCurrentChange(val) {
-        this.params.page = val
-        this.fetchData()
+      this.params.page = val
+      this.fetchData()
     },
     handlesizechange() {
-        this.page_size = page-size
-        this.fetchData()
+      this.page_size = page-size
+      this.fetchData()
+    },
+    searchClick() {
+      this.page_size = 1
+      this.fetchData()
     }
   }
 }

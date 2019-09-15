@@ -69,10 +69,10 @@ export const constantRoutes = [
         meta: { title: '用户管理', icon: 'users' }
       },
       {
-        path: 'role',
+        path: 'roles',
         name: 'Role',
         component: () => import('@/views/user/role'),
-        meta: { title: '角色管理', icon: 'role' }
+        meta: { title: '角色管理', icon: 'roles' }
       },
       {
         path: 'sysuser',
@@ -101,6 +101,24 @@ export const constantRoutes = [
         name: 'Mysql',
         component: () => import('@/views/assets/mysql'),
         meta: { title: '数据库资源', icon: 'mysql' }
+      },      
+      {
+        path: 'slb',
+        name: 'Slb',
+        component: () => import('@/views/assets/slb'),
+        meta: { title: '负载均衡器', icon: 'slb' }
+      },
+      {
+        path: 'redis',
+        name: 'Redis',
+        component: () => import('@/views/assets/redis'),
+        meta: { title: 'redis资源', icon: 'redis' }
+      },
+      {
+        path: 'dns',
+        name: 'Dns',
+        component: () => import('@/views/assets/dns'),
+        meta: { title: '域名资源', icon: 'dns' }
       },
     ]
   },

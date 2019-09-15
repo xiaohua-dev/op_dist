@@ -1,9 +1,9 @@
 <template>
-  <div class="server-list-container" style="border: 5px solid #eee">
-    <el-form :inline="true" :model="formInline" class="server-form-inline">
+  <div class="slb-list-container" style="border: 5px solid #eee">
+    <el-form :inline="true" :model="formInline" class="slb-form-inline">
       <el-form-item>
         <div style="margin: 20px;"></div>
-        <el-button type="primary" @click="dialogVisible = true">+ 添加主机</el-button>
+        <el-button type="primary" @click="dialogVisible = true">+ 添加slb</el-button>
         <el-dialog
           title="提示"
           :visible.sync="dialogVisible"
@@ -27,7 +27,7 @@
       </el-form-item>
       <el-form-item>
         <div style="margin: 20px;"></div>
-        <el-input v-model="params.db_instance_id" placeholder="搜索: 数据库id等">
+        <el-input v-model="params.slb_loadbalancerid" placeholder="搜索: 服务、名称、IP等">
           <el-button slot="append" icon="el-icon-search" @click="searchClick"></el-button>
         </el-input>
       </el-form-item>
@@ -42,44 +42,44 @@
         width="50">
       </el-table-column>
       <el-table-column
-        prop="db_instance_description"
-        label="数据库标别名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="db_instance_id"
-        label="数据库id"
-        width="190">
-      </el-table-column>
-      <el-table-column
-        prop="db_ipaddress"
-        label="数据库域名地址"
+        prop="slb_loadbalancerid"
+        label="slb的id"
         width="200">
       </el-table-column>
       <el-table-column
-        prop="db_port"
-        label="数据库端口"
+        prop="slb_loadbalancername"
+        label="slb地址"
+        width="150">
+      </el-table-column>
+      <el-table-column
+        prop="slb_address"
+        label="slb ip地址"
         width="100">
       </el-table-column>
       <el-table-column
-        prop="db_engine"
-        label="数据库类型"
-        width="100">
+        prop="slb_backendservers"
+        label="后端服务"
+        width="200">
       </el-table-column>
       <el-table-column
-        prop="db_engineversion"
-        label="数据库版本"
-        width="100"> 
+        prop="slb_listenerports"
+        label="监听端口"
+        width="80">
       </el-table-column>
       <el-table-column
-        prop="db_instancetype"
-        label="数据库模式"
-        width="100"> 
+        prop="slb_status"
+        label="slb状态"
+        width="60"> 
       </el-table-column>
       <el-table-column
-        prop="db_regionid"
-        label="所处区域"
-        width="120">
+        prop="slb_protocal"
+        label="监听协议"
+        width="80"> 
+      </el-table-column>
+      <el-table-column
+        prop="slb_regionid"
+        label=" 所在区域"
+        width="170">
       </el-table-column>
       <el-table-column label="操作">
       <template slot-scope="scope">
@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { getMysqlList } from '@/api/server'
+import { getSlbList } from '@/api/server'
 
 export default {
   data() {
@@ -139,7 +139,7 @@ export default {
   },
   methods: {
     fetchData() {
-      getMysqlList(this.params).then(res => {
+      getSlbList(this.params).then(res => {
         this.totalNum = res.count
         this.tableData = res.results
       })

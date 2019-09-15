@@ -26,7 +26,7 @@ export function getUserList(params) {
 
 export function getRoleList(params) {
   return request({
-    url: '/role/',
+    url: '/roles/',
     method: 'get',
     params
   })
